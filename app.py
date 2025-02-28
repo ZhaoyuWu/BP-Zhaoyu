@@ -197,7 +197,7 @@ def update_pwd_with_name(username):
 
 
 def calculateProbability(a, b, x):
-    # print(math.exp((b * (x - a))) / (1 + math.exp((b * (x - a)))))
+    print(math.exp((b * (x - a))) / (1 + math.exp((b * (x - a)))))
     return math.exp((b * (x - a))) / (1 + math.exp((b * (x - a))))
 
 
@@ -422,7 +422,7 @@ def add_level():
             faehigkeit = R(R_Parameter[1], R_Parameter[0])
             print("all right",faehigkeit)
         faehigkeits = Level.query.filter(Level.username == username, Level.kategorie == kategorie).order_by(
-            Level.create_time.desc()).with_entities(Level.faehigkeit).limit(4).all()
+            Level.create_time.desc()).with_entities(Level.faehigkeit).limit(5).all()
         print("recently 4 faehigkeit:",faehigkeits)
         newest_faehig = faehigkeits[0][0]
         current_faehig = 0
@@ -433,7 +433,8 @@ def add_level():
             print("newest",faehigkeit)
         if(faehigkeit - newest_faehig > 0.5):
             faehigkeit = newest_faehig + 0.5
-        faehigkeit = (current_faehig + faehigkeit)/(len(faehigkeits)+1)
+        # faehigkeit = (current_faehig + faehigkeit)/(len(faehigkeits)+1)
+
         # else:
         #     faehigkeit = Level.query.filter(Level.username == username, Level.kategorie == kategorie).order_by(
         #         Level.create_time.desc()).with_entities(Level.faehigkeit).limit(1).all()
