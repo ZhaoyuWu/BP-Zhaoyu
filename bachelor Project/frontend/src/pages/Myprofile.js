@@ -108,7 +108,7 @@ function Myprofile(){
 
                 {scores && scores.map(item =>
                         <tr key={item.kategorie}>
-                            <td>{item.kategorie} : {item.score*100} / 100</td>
+                            <td>{item.kategorie} : {(item.score*100).toFixed(0)} / 100</td>
                         </tr>
                     )}
                </li>
